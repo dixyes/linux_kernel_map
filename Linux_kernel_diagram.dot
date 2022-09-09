@@ -48,7 +48,7 @@ digraph "Linux_kernel_diagram" {
 			URL = "https://en.wikibooks.org/wiki/The_Linux_Kernel/Syscalls",
 			fillcolor = "#d9e7ee",
 			fixedsize = true,
-			label = "System calls",
+			label = "系统调用",
 			row = usr,
 			shape = ellipse]
 		sysfs [
@@ -60,24 +60,24 @@ digraph "Linux_kernel_diagram" {
 			fixedsize = true,
 			fontsize = 20,
 			height = 0.8,
-			label = "Device\nModel",
+			label = "设备模型",
 			shape = octagon,
 			width = 2]
 		sysfs -> DM
 		log_sys [
 			fillcolor = "#6a9ab1",
 			fontsize = 20,
-			label = "system run,\nmodules,\ngeneric\nHW access "]
+			label = "运行中的系统,\n模块,\n通用设施\n硬件访问 "]
 		DM -> log_sys
 		bus_drv [
 			fillcolor = "#71809b",
-			label = "bus drivers"]
+			label = "总线设备"]
 		log_sys -> bus_drv
 		buses [
 			fillcolor = "#777777",
 			fontcolor = white,
 			fontsize = 20,
-			label = "buses:\nPCI, USB ...",
+			label = "总线:\nPCI, USB ...",
 			row = chip]
 		bus_drv -> buses
 	}
@@ -109,22 +109,22 @@ digraph "Linux_kernel_diagram" {
 			shape = ellipse]
 		prot_fam [
 			fillcolor = "#b2d3e4",
-			label = "protocol\nfamilies"]
+			label = "协议族"]
 		sock -> prot_fam
 		log_prot [
 			fillcolor = "#6a9ab1",
-			label = "protocols:\nTCP, UDP, IP"]
+			label = "协议:\nTCP, UDP, IP"]
 		prot_fam -> log_prot
 		netif [
 			fillcolor = "#71809b",
 			fontsize = 20,
-			label = "network\ninterfaces\nand drivers"]
+			label = "网络\n接口\n驱动"]
 		log_prot -> netif
 		net_hw [
 			fillcolor = "#777777",
 			fontcolor = white,
 			fontsize = 20,
-			label = "network:\nEthernet, WiFi ...",
+			label = "网络:\n以太网, WiFi ...",
 			row = chip]
 		netif -> net_hw
 		NFS [
@@ -159,7 +159,7 @@ digraph "Linux_kernel_diagram" {
 		proc [
 			fillcolor = "#d9e7ee",
 			fixedsize = true,
-			label = Processes,
+			label = "进程",
 			row = usr,
 			shape = ellipse]
 		Tasks [
@@ -177,12 +177,12 @@ digraph "Linux_kernel_diagram" {
 		Tasks -> sync
 		sched [
 			fillcolor = "#6a9ab1",
-			label = Scheduler]
+			label = "调度器"]
 		sync -> sched
 		IRQ [
 			fillcolor = "#71809b",
 			fontsize = 20,
-			label = "interrupts\ncore,\nCPU arch"]
+			label = "终端\ncCPU核,\nCPU架构"]
 		sched -> IRQ
 		CPU [
 			fillcolor = "#777777",
@@ -201,7 +201,7 @@ digraph "Linux_kernel_diagram" {
 			color = "#51bf5b",
 			fillcolor = "#d9e7ee",
 			fixedsize = true,
-			label = "memory\naccess",
+			label = "内存\n访问",
 			row = usr,
 			height = 1,
 			shape = ellipse]
@@ -211,7 +211,7 @@ digraph "Linux_kernel_diagram" {
 			fixedsize = true,
 			fontsize = 20,
 			height = 0.8,
-			label = "memory\nmapping",
+			label = "内存\nmapping",
 			shape = octagon,
 			width = 2]
 		mmap -> log_mem
@@ -221,7 +221,7 @@ digraph "Linux_kernel_diagram" {
 			color = "#8383cc",
 			fillcolor = "#91b5c9",
 			fixedsize = true,
-			label = Swap,
+			label = "交换",
 			height = 0.8,
 			shape = octagon,
 			width = 1.2]
@@ -230,7 +230,7 @@ digraph "Linux_kernel_diagram" {
 			color = "#8383cc", weight = 1]
 		PA [
 			fillcolor = "#71809b",
-			label = "Page\nAllocator"
+			label = "页面\n分配"
 		]
 		PC -> PA [weight = 0 color="#51bf5b"]
 		RAM [
@@ -270,12 +270,12 @@ digraph "Linux_kernel_diagram" {
 		FS [
 			fillcolor = "#d9e7ee",
 			fixedsize = true,
-			label = "files and\ndirectories",
+			label = "文件\n目录",
 			row = usr,
 			shape = ellipse]
 		VFS [
 			fillcolor = "#b2d3e4",
-			label = "Virtual\nFile System"]
+			label = "虚拟\n文件系统"]
 		FS -> VFS
 		VFS -> mmap [ weight = 0]
 		VFS -> NFS [
@@ -283,27 +283,27 @@ digraph "Linux_kernel_diagram" {
 		logFS [
 			fillcolor = "#6a9ab1",
 			fontsize = 20,
-			label = "logical\nfilesystems:\next3, xfs ..."]
+			label = "逻辑\n文件系统:\next3, xfs ..."]
 		VFS -> logFS
 		PC [
 			fillcolor = "#91b5c9",
 			fixedsize = true,
 			fontsize = 20,
 			height = 0.8,
-			label = "page\ncache",
+			label = "页面\n缓存",
 			shape = octagon,
 			width = 1.2]
 		VFS -> PC [ weight = 0]
 		block [
 			fillcolor = "#71809b",
 			fontsize = 20,
-			label = "Block\ndevices\nand drivers"]
+			label = "块设备\n驱动"]
 		logFS -> block
 		SD [
 			fillcolor = "#777777",
 			fontcolor = white,
 			fontsize = 20,
-			label = "storage devices:\nSCSI, NVMe ...",
+			label = "存储设备:\nSCSI, NVMe ...",
 			row = chip]
 		block -> SD
 	}	// storge
@@ -325,7 +325,7 @@ digraph "Linux_kernel_diagram" {
 			fixedsize = true,
 			fontsize = 12,
 			height = 0.6,
-			label = "human\ninterface",
+			label = "人机\n接口",
 			row = func,
 			width = 2]
 		HI -> HI_ [
@@ -334,28 +334,28 @@ digraph "Linux_kernel_diagram" {
 		char [
 			fillcolor = "#d9e7ee",
 			fixedsize = true,
-			label = "char\ndevices",
+			label = "字符\n设备",
 			row = usr,
 			shape = ellipse]
 		input [
 			fillcolor = "#b2d3e4",
-			label = "input\nsubsystem"]
+			label = "输入\n子系统"]
 		char -> input
 		F7 [
 			fillcolor = "#6a9ab1",
-			label = "HI class\ndrivers"]
+			label = "HI类\n驱动"]
 		input -> F7
 		HID [
 			fillcolor = "#71809b",
 			fontsize = 20,
 			URL = "https://www.kernel.org/doc/html/latest/hid/",
-			label = "HI\nperipherals\ndrivers"]
+			label = "HI\n外设\n驱动"]
 		F7 -> HID
 		display [
 			fillcolor = "#777777",
 			fontcolor = white,
 			fontsize = 19,
-			label = "keyboard, mouse,\ndisplay, audio",
+			label = "键盘, 鼠标,\n显示, 音频",
 			row = chip]
 		HID -> display
 	} // HI
@@ -390,7 +390,7 @@ digraph "Linux_kernel_diagram" {
 		functions_ -> HI -> system [ weight = 1]
 		functions [
 			color = gray,
-			tooltip = "Columns represent main functionalities of the kernel",
+			tooltip = "每列代表了内核的主要功能",
 			URL = "http://www.makelinux.net/ldd3/chp-1-sect-2.shtml",
 			fillcolor = gray,
 			fixedsize = true,
@@ -420,7 +420,7 @@ digraph "Linux_kernel_diagram" {
 		usr [
 			fillcolor = "#d9e7eeff",
 			fixedsize = true,
-			label = "user space\ninterfaces",
+			label = "用户空间\n接口",
 			row = usr,
 			shape = ellipse,
 			style = "filled,setlinewidth(0)"]
@@ -468,14 +468,14 @@ digraph "Linux_kernel_diagram" {
 			width = 0]
 		virt [
 			fillcolor = "#b2d3e4",
-			label = "virtual\nsubsystems",
+			label = "虚拟化\n子系统",
 			URL = "https://en.wikipedia.org/wiki/Proxy_pattern",
-			tooltip = "proxy between standard user space interfaces and internal implementations",
+			tooltip = "用户空间接口和真实内部实现之间的代理",
 			style = "filled,setlinewidth(0)"]
 		VM [
 			color = "#51bf5b",
 			fillcolor = "#b2d3e4",
-			label = "Virtual\nmemory"]
+			label = "虚拟\n内存"]
 	}
 	subgraph bridges {
 		graph [
@@ -483,7 +483,7 @@ digraph "Linux_kernel_diagram" {
 		bridges [
 			fillcolor = "#91b5c9",
 			shape = octagon,
-			tooltip = "bridges between uniform virtual interfaces and various implementations",
+			tooltip = "不同网络接口之间的网桥",
 			URL = "https://en.wikipedia.org/wiki/Bridge_pattern",
 			style = "filled,setlinewidth(0)"]
 		DM;
@@ -518,14 +518,14 @@ digraph "Linux_kernel_diagram" {
 		log_mem [
 			color = "#51bf5b",
 			fillcolor = "#6a9ab1",
-			label = "logical\nmemory"]
+			label = "逻辑\n内存"]
 		//SW
 	}
 	subgraph HWI {
 		graph [ rank = same]
 		HWI [
 			fillcolor = "#71809b",
-			label = "hardware\ninterfaces",
+			label = "硬件\n接口",
 			style = "filled,setlinewidth(0)"]
 		bus_drv;
 		netif;
@@ -546,7 +546,7 @@ digraph "Linux_kernel_diagram" {
 		HW [
 			fillcolor = "#777777",
 			fontcolor = white,
-			label = "electronics,\nhardware",
+			label = "电气设备,\n硬件",
 			row = chip,
 			style = "filled,setlinewidth(0)"]
 		buses;
@@ -563,14 +563,14 @@ digraph "Linux_kernel_diagram" {
 		RAM;
 	}
 	bottom [
-		label = "© 2007-2021 Constantine Shulyupin http://www.MakeLinux.net/kernel/diagram",
+		label = "© 2007-2021 Constantine Shulyupin http://www.MakeLinux.net/kernel/diagram\n© 2022",
 		shape = plaintext,
 		style = ""]
 	CPU -> bottom [
 		style = invis]
 	layers [
 		fillcolor = lightgray,
-		tooltip = "Functionalities are divided to common layers. It is approximate division.",
+		tooltip = "功能被大致的划分为一些层级",
 		height = 0.1,
 		style = "filled,setlinewidth(0)",
 		width = 0.5]
@@ -632,7 +632,7 @@ digraph "Linux_kernel_diagram" {
 		style = "filled,setlinewidth(1)"]
 	LKD [
 		fontsize = 40,
-		label = "Linux kernel diagram",
+		label = "Linux kernel 图表",
 		shape = plain,
 		style = ""]
 	LKD -> processing [ style = invis]
