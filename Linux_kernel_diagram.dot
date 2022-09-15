@@ -182,7 +182,7 @@ digraph "Linux_kernel_diagram" {
 		IRQ [
 			fillcolor = "#71809b",
 			fontsize = 20,
-			label = "终端\ncCPU核,\nCPU架构"]
+			label = "中断\nCPU核,\nCPU架构"]
 		sched -> IRQ
 		CPU [
 			fillcolor = "#777777",
