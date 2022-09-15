@@ -39,6 +39,7 @@ digraph "Linux_kernel_diagram" {
 			fillcolor = white,
 			fixedsize = true,
 			height = 0.6,
+            label = "系统",
 			row = func,
 			width = 2]
 		system -> system_ [
@@ -53,7 +54,7 @@ digraph "Linux_kernel_diagram" {
 			shape = ellipse]
 		sysfs [
 			fillcolor = "#b2d3e4",
-			label = "proc & sysfs\nfile systems"]
+			label = "proc & sysfs\n文件系统"]
 		SCI -> sysfs
 		DM [
 			fillcolor = "#91b5c9",
@@ -67,7 +68,7 @@ digraph "Linux_kernel_diagram" {
 		log_sys [
 			fillcolor = "#6a9ab1",
 			fontsize = 20,
-			label = "运行中的系统,\n模块,\n通用设施\n硬件访问 "]
+			label = "运行中的系统,\n模块,\n通用\n硬件访问"]
 		DM -> log_sys
 		bus_drv [
 			fillcolor = "#71809b",
@@ -97,6 +98,7 @@ digraph "Linux_kernel_diagram" {
 			fixedsize = true,
 			height = 0.6,
 			row = func,
+            label = "网络",
 			width = 2]
 		networking -> networking_ [
 			arrowhead = "",
@@ -151,6 +153,7 @@ digraph "Linux_kernel_diagram" {
 			fillcolor = white,
 			fixedsize = true,
 			height = 0.6,
+            label = "进程",
 			row = func,
 			width = 2]
 		processing -> processing_ [
@@ -163,14 +166,16 @@ digraph "Linux_kernel_diagram" {
 			row = usr,
 			shape = ellipse]
 		Tasks [
-			fillcolor = "#b2d3e4"]
+			fillcolor = "#b2d3e4",
+            label = "任务"
+        ]
 		proc -> Tasks
 		sync [
 			fillcolor = "#91b5c9",
 			fixedsize = true,
 			fontsize = 20,
-			fontname = "Ubuntu Condensed"
-				label = synchronization,
+			fontname = "Ubuntu Condensed",
+			label = "进程间同步",
 			height = 0.7,
 			//width = 2,
 			shape = octagon]
@@ -211,7 +216,7 @@ digraph "Linux_kernel_diagram" {
 			fixedsize = true,
 			fontsize = 20,
 			height = 0.8,
-			label = "内存\nmapping",
+			label = "内存\n映射",
 			shape = octagon,
 			width = 2]
 		mmap -> log_mem
@@ -262,6 +267,7 @@ digraph "Linux_kernel_diagram" {
 			fillcolor = white,
 			fixedsize = true,
 			height = 0.6,
+            label = "存储",
 			row = func,
 			width = 2]
 		storage -> storage_ [
@@ -323,11 +329,12 @@ digraph "Linux_kernel_diagram" {
 			URL = "https://en.wikibooks.org/wiki/The_Linux_Kernel/Human_interfaces",
 			fillcolor = white,
 			fixedsize = true,
-			fontsize = 12,
+			//fontsize = 12,
 			height = 0.6,
-			label = "人机\n接口",
-			row = func,
-			width = 2]
+			label = "人机接口",
+			row = func
+			width = 2
+        ]
 		HI -> HI_ [
 			arrowhead = "",
 			row = func]
@@ -376,6 +383,7 @@ digraph "Linux_kernel_diagram" {
 			fillcolor = white,
 			fixedsize = true,
 			height = 0.6,
+            label = "内存",
 			row = func,
 			width = 2]
 		memory -> storage [ weight = 1]
@@ -390,6 +398,7 @@ digraph "Linux_kernel_diagram" {
 		functions_ -> HI -> system [ weight = 1]
 		functions [
 			color = gray,
+            label = "功能",
 			tooltip = "每列代表了内核的主要功能",
 			URL = "http://www.makelinux.net/ldd3/chp-1-sect-2.shtml",
 			fillcolor = gray,
@@ -468,7 +477,7 @@ digraph "Linux_kernel_diagram" {
 			width = 0]
 		virt [
 			fillcolor = "#b2d3e4",
-			label = "虚拟化\n子系统",
+			label = "虚拟\n子系统",
 			URL = "https://en.wikipedia.org/wiki/Proxy_pattern",
 			tooltip = "用户空间接口和真实内部实现之间的代理",
 			style = "filled,setlinewidth(0)"]
@@ -483,7 +492,8 @@ digraph "Linux_kernel_diagram" {
 		bridges [
 			fillcolor = "#91b5c9",
 			shape = octagon,
-			tooltip = "不同网络接口之间的网桥",
+            label = "桥",
+			tooltip = "多种虚拟接口和底层实现的桥梁",
 			URL = "https://en.wikipedia.org/wiki/Bridge_pattern",
 			style = "filled,setlinewidth(0)"]
 		DM;
@@ -514,7 +524,9 @@ digraph "Linux_kernel_diagram" {
 			width = 0]
 		logical [
 			fillcolor = "#6a9ab1",
-			style = "filled,setlinewidth(0)"]
+			style = "filled,setlinewidth(0)",
+            label = "逻辑层"
+        ]
 		log_mem [
 			color = "#51bf5b",
 			fillcolor = "#6a9ab1",
@@ -573,6 +585,7 @@ digraph "Linux_kernel_diagram" {
 		tooltip = "功能被大致的划分为一些层级",
 		height = 0.1,
 		style = "filled,setlinewidth(0)",
+        label = "层级",
 		width = 0.5]
 	functions -> layers [
 		style = invis ]
@@ -632,7 +645,7 @@ digraph "Linux_kernel_diagram" {
 		style = "filled,setlinewidth(1)"]
 	LKD [
 		fontsize = 40,
-		label = "Linux kernel 图表",
+		label = "Linux 内核图表",
 		shape = plain,
 		style = ""]
 	LKD -> processing [ style = invis]
